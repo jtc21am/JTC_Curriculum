@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Auth0 client
     const auth0 = new Auth0Client({
-        domain: 'dev-gkgncylqchbqob52.us.auth0.comYOUR_AUTH0_DOMAIN',
+        domain: 'dev-gkgncylqchbqob52.us.auth0.com',
         client_id: 'toUxIMe4zjdTVnYoeqM9RS7MyOpbetBS',
         redirect_uri: window.location.origin
     });
