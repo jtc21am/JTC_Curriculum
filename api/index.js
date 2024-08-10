@@ -6,6 +6,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const websocket = require('./websocket'); // WebSocket integration
+const { expressjwt: jwtMiddleware } = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 
 const app = express();
 
@@ -44,19 +46,18 @@ const curriculumItemSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 const CurriculumItem = mongoose.model('CurriculumItem', curriculumItemSchema);
 
-// JWT middleware
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
-}
+// Auth0 JWT middleware
+const checkJwt = jwtMiddleware({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+  }),
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: `https://${process.env.AUTH0_DOMAIN}/`,
+  algorithms: ['RS256']
+});
 
 // Routes
 app.post('/api/register', async (req, res) => {
@@ -87,7 +88,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-app.get('/api/users/me', authenticateToken, async (req, res) => {
+app.get('/api/users/me', checkJwt, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
     res.json(user);
@@ -96,7 +97,7 @@ app.get('/api/users/me', authenticateToken, async (req, res) => {
   }
 });
 
-app.put('/api/users/me', authenticateToken, async (req, res) => {
+app.put('/api/users/me', checkJwt, async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.user.id, req.body, { new: true }).select('-password');
     res.send(user);
@@ -105,7 +106,7 @@ app.put('/api/users/me', authenticateToken, async (req, res) => {
   }
 });
 
-app.get('/api/curriculum', authenticateToken, async (req, res) => {
+app.get('/api/curriculum', checkJwt, async (req, res) => {
   try {
     const curriculumItems = await CurriculumItem.find();
     res.send(curriculumItems);
@@ -114,7 +115,7 @@ app.get('/api/curriculum', authenticateToken, async (req, res) => {
   }
 });
 
-app.put('/api/curriculum/:id', authenticateToken, async (req, res) => {
+app.put('/api/curriculum/:id', checkJwt, async (req, res) => {
   try {
     const item = await CurriculumItem.findByIdAndUpdate(req.params.id, req.body, { new: true });
     websocket.broadcast({ type: 'UPDATE', data: item }); // Broadcast update via WebSocket
