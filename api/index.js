@@ -14,32 +14,39 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('public')); // To serve static files like images
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Could not connect to MongoDB', err));
 
 // Define schemas and models
 const userSchema = new mongoose.Schema({
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  phoneNumber: String,
   email: { type: String, unique: true, required: true },
-  password: { type: String, required: true },
-  fullName: String,
-  title: String,
-  company: String,
-  experience: Number,
+  linkedIn: String,
+  workTitle: String,
+  employer: String,
+  jobTitle: String,
+  profilePic: { type: String, required: false }, // URL to the image
   bio: String,
-  profilePic: String
+  lessonsPreferred: [{ type: mongoose.Schema.Types.ObjectId, ref: 'CurriculumItem' }]
 });
 
 const curriculumItemSchema = new mongoose.Schema({
-  date: String,
+  date: { type: Date, required: true }, // Changed to Date type
   type: String,
   moduleName: String,
   lessonName: String,
   conceptsCovered: String,
-  lessonPlanDueDate: String,
-  speakers: [String],
+  lessonPlanDueDate: { type: Date, required: true }, // Changed to Date type
+  speakers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], // Reference to User model
   adminConfirmed: Boolean
 });
 
@@ -59,7 +66,12 @@ const checkJwt = jwtMiddleware({
   algorithms: ['RS256']
 });
 
-// Routes
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Curriculum Organizer API');
+});
+
+// User Registration
 app.post('/api/register', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -70,10 +82,12 @@ app.post('/api/register', async (req, res) => {
     await user.save();
     res.status(201).send({ message: 'User created successfully' });
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Registration error:', error);
+    res.status(400).send(error.message);
   }
 });
 
+// User Login
 app.post('/api/login', async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -84,46 +98,92 @@ app.post('/api/login', async (req, res) => {
       res.status(400).send('Invalid credentials');
     }
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Login error:', error);
+    res.status(400).send(error.message);
   }
 });
 
+// Get Current User
 app.get('/api/users/me', checkJwt, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.auth.id).select('-password');
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
     res.json(user);
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Get user error:', error);
+    res.status(400).send(error.message);
   }
 });
 
+// Update Current User
 app.put('/api/users/me', checkJwt, async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.user.id, req.body, { new: true }).select('-password');
+    const user = await User.findByIdAndUpdate(req.auth.id, req.body, { new: true }).select('-password');
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
     res.send(user);
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Update user error:', error);
+    res.status(400).send(error.message);
   }
 });
 
+// Get Curriculum Items
 app.get('/api/curriculum', checkJwt, async (req, res) => {
   try {
-    const curriculumItems = await CurriculumItem.find();
+    const curriculumItems = await CurriculumItem.find().populate('speakers');
     res.send(curriculumItems);
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Get curriculum error:', error);
+    res.status(400).send(error.message);
   }
 });
 
+// Request to Speak at a Lesson
 app.put('/api/curriculum/:id', checkJwt, async (req, res) => {
   try {
-    const item = await CurriculumItem.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const item = await CurriculumItem.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('speakers');
+    if (!item) {
+      return res.status(404).send('Curriculum item not found');
+    }
     websocket.broadcast({ type: 'UPDATE', data: item }); // Broadcast update via WebSocket
     res.send(item);
   } catch (error) {
-    res.status(400).send(error);
+    console.error('Update curriculum error:', error);
+    res.status(400).send(error.message);
   }
 });
 
-// Export the app and WebSocket server for Vercel
+// Serve Profile Pictures
+app.get('/profile-pic/:filename', (req, res) => {
+  res.sendFile(`/path/to/your/uploads/${req.params.filename}`, { root: '.' });
+});
+
+// Catch-all route for undefined paths
+app.use((req, res) => {
+  res.status(404).send('404 - Not Found');
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+  console.log('UNHANDLED REJECTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
 module.exports = app;

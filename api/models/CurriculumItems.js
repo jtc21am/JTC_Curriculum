@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const curriculumItemSchema = new mongoose.Schema({
-  date: String,
+  date: { type: Date, required: true },
   code: String,
   type: String,
   phases: String,
