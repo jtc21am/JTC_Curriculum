@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Guest Speaker System</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        let currentUser = null;
+        let authToken = null;
+        const API_URL = '/api';
+        const socket = new WebSocket('wss://your-vercel-app.vercel.app'); // Update with your Vercel app URL
+
+        socket.addEventListener('message', function(event) {
+            const message = JSON.parse(event.data);
+            if (message.type === 'UPDATE') {
+                updateCurriculumPage(message.data); // Function to update the page with new data
+            }
+        });
+
+        function renderLoginPage() {
+            // Implement the login page rendering logic
+        }
+
+        function renderRegistrationPage() {
+            // Implement the registration page rendering logic
+        }
+
+        function renderProfilePage() {
+            // Implement the profile page rendering logic
+        }
+
+        async function renderCurriculumPage() {
+            const curriculumData = await fetchWithAuth(`${API_URL}/curriculum`);
+            updateCurriculumPage(await curriculumData.json()); // Update the page with fetched data
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    authToken = data.token;
+                    currentUser = data.user;
+                    localStorage.setItem('authToken', authToken);
+                    renderCurriculumPage();
+                } else {
+                    alert('Invalid credentials');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('An error occurred during login');
+            }
+        }
+
+        async function handleRegistration(e) {
+            e.preventDefault();
+            const newUser = {
+                email: document.getElementById('regEmail').value,
+                password: document.getElementById('regPassword').value,
+                fullName: document.getElementById('regFullName').value,
+                title: document.getElementById('regTitle').value,
+                company: document.getElementById('regCompany').value,
+                experience: document.getElementById('regExperience').value,
+                bio: document.getElementById('regBio').value,
+                profilePic: document.getElementById('profilePicPreview').src
+            };
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newUser)
+                });
+                if (response.ok) {
+                    alert('Registration successful. Please log in.');
+                    renderLoginPage();
+                } else {
+                    alert('Registration failed');
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                alert('An error occurred during registration');
+            }
+        }
+
+        async function handleProfileUpdate(e) {
+            e.preventDefault();
+            const updatedUser = {
+                fullName: document.getElementById('fullName').value,
+                title: document.getElementById('title').value,
+                company: document.getElementById('company').value,
+                experience: document.getElementById('experience').value,
+                bio: document.getElementById('bio').value,
+                profilePic: document.getElementById('profilePicPreview').src
+            };
+            try {
+                const response = await fetchWithAuth(`${API_URL}/users/me`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedUser)
+                });
+                if (response.ok) {
+                    currentUser = await response.json();
+                    alert('Profile updated successfully');
+                } else {
+                    alert('Profile update failed');
+                }
+            } catch (error) {
+                console.error('Profile update error:', error);
+                alert('An error occurred during profile update');
+            }
+        }
+
+        function handleProfilePicUpload(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePicPreview').src = e.target.result;
+                    document.getElementById('profilePicPreview').style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            authToken = null;
+            localStorage.removeItem('authToken');
+            renderLoginPage();
+        }
+
+        async function addSpeaker(itemId) {
+            try {
+                const response = await fetchWithAuth(`${API_URL}/curriculum/${itemId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ $addToSet: { speakers: currentUser.email } })
+                });
+                if (response.ok) {
+                    renderCurriculumPage();
+                } else {
+                    alert('Failed to add speaker');
+                }
+            } catch (error) {
+                console.error('Add speaker error:', error);
+                alert('An error occurred while adding speaker');
+            }
+        }
+
+        async function removeSpeaker(itemId) {
+            try {
+                const response = await fetchWithAuth(`${API_URL}/curriculum/${itemId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ $pull: { speakers: currentUser.email } })
+                });
+                if (response.ok) {
+                    renderCurriculumPage();
+                } else {
+                    alert('Failed to remove speaker');
+                }
+            } catch (error) {
+                console.error('Remove speaker error:', error);
+                alert('An error occurred while removing speaker');
+            }
+        }
+
+        async function fetchWithAuth(url, options = {}) {
+            if (!authToken) {
+                throw new Error('No auth token available');
+            }
+            const headers = {
+                ...options.headers,
+                'Authorization': `Bearer ${authToken}`
+            };
+            const response = await fetch(url, { ...options, headers });
+            if (response.status === 401) {
+                // Token expired or invalid
+                authToken = null;
+                localStorage.removeItem('authToken');
+                renderLoginPage();
+                throw new Error('Authentication failed');
+            }
+            return response;
+        }
+
+        // Initial render
+        authToken = localStorage.getItem('authToken');
+        if (authToken) {
+            fetchWithAuth(`${API_URL}/users/me`)
+                .then(response => response.json())
+                .then(user => {
+                    currentUser = user;
+                    renderCurriculumPage();
+                })
+                .catch(() => renderLoginPage());
+        } else {
+            renderLoginPage();
+        }
+    </script>
+</body>
+</html>
