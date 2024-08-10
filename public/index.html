@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Guest Speaker System</title>
-    <style>
-        /* Add your CSS styles here */
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app"></div>
@@ -15,7 +13,7 @@
         let currentUser = null;
         let authToken = null;
         const API_URL = '/api';
-        const socket = new WebSocket('wss://your-vercel-app.vercel.app'); // Update with your Vercel app URL
+        const socket = new WebSocket('wss://curriculum-organizer.vercel.app'); // Update with your Vercel app URL
 
         socket.addEventListener('message', function(event) {
             const message = JSON.parse(event.data);
@@ -25,20 +23,82 @@
         });
 
         function renderLoginPage() {
-            // Implement the login page rendering logic
+            document.getElementById('app').innerHTML = `
+                <h1>Login</h1>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="renderRegistrationPage()">Register</a></p>
+            `;
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
         }
 
         function renderRegistrationPage() {
-            // Implement the registration page rendering logic
+            document.getElementById('app').innerHTML = `
+                <h1>Register</h1>
+                <form id="registrationForm">
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                    <input type="text" id="regFullName" placeholder="Full Name" required>
+                    <input type="text" id="regTitle" placeholder="Title">
+                    <input type="text" id="regCompany" placeholder="Company">
+                    <input type="number" id="regExperience" placeholder="Years of Experience">
+                    <textarea id="regBio" placeholder="Short Bio"></textarea>
+                    <input type="file" id="regProfilePic" accept="image/*">
+                    <img id="profilePicPreview" style="display: none;">
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="renderLoginPage()">Login</a></p>
+            `;
+            document.getElementById('registrationForm').addEventListener('submit', handleRegistration);
+            document.getElementById('regProfilePic').addEventListener('change', handleProfilePicUpload);
         }
 
         function renderProfilePage() {
-            // Implement the profile page rendering logic
+            document.getElementById('app').innerHTML = `
+                <div class="nav">
+                    <a href="#" onclick="renderCurriculumPage()">View Curriculum</a>
+                    <a href="#" onclick="handleLogout()">Logout</a>
+                </div>
+                <h1>User Profile</h1>
+                <form id="profileForm">
+                    <img id="profilePicPreview" src="data:${currentUser.profilePic.contentType};base64,${btoa(currentUser.profilePic.data)}" style="display: ${currentUser.profilePic ? 'block' : 'none'}">
+                    <input type="file" id="profilePic" accept="image/*">
+                    <input type="email" id="email" value="${currentUser.email}" readonly>
+                    <input type="text" id="fullName" value="${currentUser.fullName}" required>
+                    <input type="text" id="title" value="${currentUser.title || ''}">
+                    <input type="text" id="company" value="${currentUser.company || ''}">
+                    <input type="number" id="experience" value="${currentUser.experience || ''}" placeholder="Years of Experience">
+                    <textarea id="bio" placeholder="Short Bio">${currentUser.bio || ''}</textarea>
+                    <button type="submit">Update Profile</button>
+                </form>
+            `;
+            document.getElementById('profileForm').addEventListener('submit', handleProfileUpdate);
+            document.getElementById('profilePic').addEventListener('change', handleProfilePicUpload);
         }
 
         async function renderCurriculumPage() {
             const curriculumData = await fetchWithAuth(`${API_URL}/curriculum`);
             updateCurriculumPage(await curriculumData.json()); // Update the page with fetched data
+        }
+
+        function updateCurriculumPage(data) {
+            const appDiv = document.getElementById('app');
+            appDiv.innerHTML = '<h2>Available Lessons</h2>';
+            data.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('curriculum-item');
+                itemDiv.innerHTML = `
+                    <p><strong>Date:</strong> ${new Date(item.date).toLocaleDateString()}</p>
+                    <p><strong>Module:</strong> ${item.moduleName}</p>
+                    <p><strong>Lesson:</strong> ${item.lessonName}</p>
+                    <button onclick="addSpeaker('${item._id}')">Request Lesson</button>
+                    ${item.adminConfirmed ? `<p><strong>Confirmed:</strong> ${item.selectedUser ? item.selectedUser.fullName : 'None'}</p>` : ''}
+                `;
+                appDiv.appendChild(itemDiv);
+            });
         }
 
         async function handleLogin(e) {
@@ -76,7 +136,10 @@
                 company: document.getElementById('regCompany').value,
                 experience: document.getElementById('regExperience').value,
                 bio: document.getElementById('regBio').value,
-                profilePic: document.getElementById('profilePicPreview').src
+                profilePic: {
+                    data: btoa(document.getElementById('profilePicPreview').src.split(',')[1]), // Convert base64 to binary
+                    contentType: document.getElementById('profilePic').files[0].type
+                }
             };
             try {
                 const response = await fetch(`${API_URL}/register`, {
@@ -104,7 +167,10 @@
                 company: document.getElementById('company').value,
                 experience: document.getElementById('experience').value,
                 bio: document.getElementById('bio').value,
-                profilePic: document.getElementById('profilePicPreview').src
+                profilePic: {
+                    data: btoa(document.getElementById('profilePicPreview').src.split(',')[1]), // Convert base64 to binary
+                    contentType: document.getElementById('profilePic').files[0].type
+                }
             };
             try {
                 const response = await fetchWithAuth(`${API_URL}/users/me`, {
@@ -214,4 +280,3 @@
     </script>
 </body>
 </html>
-<!-- comment -->
