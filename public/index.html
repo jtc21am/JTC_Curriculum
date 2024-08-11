@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Guest Speaker System</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Your Application</title>
+    <!-- Include Auth0 SPA JS from CDN -->
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.1/auth0-spa-js.production.js"></script>
 </head>
 <body>
-    <div id="app"></div>
-
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
-    <script src="app.js"></script>
-
-    <div id="app">
-        <h1>Welcome to the Curriculum Guest Speaker System</h1>
+    <h1>Welcome to Your Application</h1>
+    <button id="login">Login</button>
+    <button id="logout" style="display: none;">Logout</button>
+    <div id="profile" style="display: none;">
+        <h2>User Profile</h2>
+        <pre id="profile-data"></pre>
     </div>
-    
+    <!-- Include your custom script -->
+    <script src="client.js"></script>
 </body>
 </html>

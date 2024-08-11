@@ -1,39 +1,31 @@
 const express = require('express');
-const { expressjwt: jwtMiddleware } = require('express-jwt');
-const jwksRsa = require('jwks-rsa');
-const CurriculumItem = require('../models/CurriculumItem');
-require('dotenv').config();
-
 const router = express.Router();
+const CurriculumItem = require('../models/CurriculumItems');
 
-const checkJwt = jwtMiddleware({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
-  }),
-  audience: process.env.AUTH0_AUDIENCE,
-  issuer: `https://${process.env.AUTH0_DOMAIN}/`,
-  algorithms: ['RS256']
-});
-
-router.get('/', checkJwt, async (req, res) => {
+// Get all curriculum items
+router.get('/', async (req, res) => {
   try {
     const curriculumItems = await CurriculumItem.find();
-    res.send(curriculumItems);
+    res.json(curriculumItems);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(500).json({ message: 'Error fetching curriculum data', error: error.message });
   }
 });
 
-router.put('/:id', checkJwt, async (req, res) => {
+// Request a lesson
+router.post('/:lessonId/request', async (req, res) => {
   try {
-    const item = await CurriculumItem.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    websocket.broadcast({ type: 'UPDATE', data: item });
-    res.send(item);
+    const lessonId = req.params.lessonId;
+    const userId = req.user.sub; // Auth0 uses 'sub' for user ID
+    const lesson = await CurriculumItem.findById(lessonId);
+    if (!lesson) {
+      return res.status(404).json({ message: 'Lesson not found' });
+    }
+    lesson.selectedUser = userId;
+    await lesson.save();
+    res.json({ message: 'Lesson requested successfully', lesson });
   } catch (error) {
-    res.status(400).send(error);
+    res.status(500).json({ message: 'Error requesting lesson', error: error.message });
   }
 });
 
