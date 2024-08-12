@@ -8,7 +8,8 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/server.js" },
     { "handle": "filesystem" },
-    { "src": "/public/(.*)", "dest": "/public/$1" },
+    { "src": "/js/(.*)", "dest": "/public/js/$1" },
+    { "src": "/(.*)", "dest": "/pages/$1" },
     { "src": "/(.*)", "dest": "/pages/index.html" }
   ]
 }
