@@ -1,0 +1,1253 @@
+[
+  {
+    "DOW": "Monday",
+    "DATE": "9/16/2024",
+    "Code": "W0D1",
+    "Type": "Orientation",
+    "Module Name": "Program Introduction",
+    "Lesson Name": "The curiosity mindset",
+    "Concepts Covered": "Importance of curiosity in learning; Techniques to foster a curious mindset; Real-world examples of curiosity-driven success; SOP Survey. Tools: Mind mapping software, Survey tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "9/17/2024",
+    "Code": "W0D2",
+    "Type": "Technical",
+    "Module Name": "Program Introduction",
+    "Lesson Name": "Technical Curriculum Overview; Assignments & CLIs, Bash, and SSH Fundamentals",
+    "Concepts Covered": "Detailed technical roadmap; Learning objectives and outcomes; Lesson structure and expectations; Introduction to the instructional team; Command line interface basics; Writing Bash scripts; Using SSH for remote access. Tools: Bash, OpenSSH"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "9/18/2024",
+    "Code": "W0D3",
+    "Type": "Orientation",
+    "Module Name": "Program Introduction",
+    "Lesson Name": "PDP Curriculum Overview (2 hours only)",
+    "Concepts Covered": "Program objectives; Expected outcomes; Structure of lessons; Overview of assignments and evaluations; Coaching. Tools: Presentation software"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "9/19/2024",
+    "Code": "W0D4",
+    "Type": "Orientation",
+    "Module Name": "Program Introduction",
+    "Lesson Name": "Prepare for Liftoff",
+    "Concepts Covered": "Overview of tools and resources"
+  },
+  {
+    "DOW": "Saturday",
+    "DATE": "9/21/2024",
+    "Code": "W0D5",
+    "Type": "Orientation",
+    "Module Name": "Program Introduction",
+    "Lesson Name": "REAP Orientation",
+    "Concepts Covered": "Overview of REAP program; Expectations and support resources. Tools: Zoom, REAP resources"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "9/23/2024",
+    "Code": "W1D1",
+    "Type": "Technical",
+    "Module Name": "Programming Fundamentals",
+    "Lesson Name": "GitHub Introduction",
+    "Concepts Covered": "Git basics: repositories, commits, branching, and merging; Navigating GitHub Classroom for assignments. Tools: Git, GitHub Classroom"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "9/24/2024",
+    "Code": "W1D2",
+    "Type": "Technical",
+    "Module Name": "Programming Fundamentals",
+    "Lesson Name": "Docker Basics",
+    "Concepts Covered": "Docker introduction and use cases; Installation; Basic commands (run, pull, build, ps, stop, rm); Dockerfile creation and usage"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "9/25/2024",
+    "Code": "W1D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Lean into your strengths",
+    "Concepts Covered": "Identifying and leveraging personal strengths in coding. Tools: Self-assessment tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "9/26/2024",
+    "Code": "W1D4",
+    "Type": "Technical",
+    "Module Name": "Programming Fundamentals",
+    "Lesson Name": "GitHub Advanced and Team Collaboration",
+    "Concepts Covered": "Using Git for version control in teams; Branching strategies; Dealing with merge conflicts; Code review practices; Issues and projects. Tools: Git, GitHub, GitHub Issues, GitHub Projects"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "9/30/2024",
+    "Code": "W2D1",
+    "Type": "Technical",
+    "Module Name": "Python Fundamentals",
+    "Lesson Name": "Syntax and Variables",
+    "Concepts Covered": "Python syntax; Variable declaration and initialization; Basic input/output operations; Python standard shell, or REPL (Read-Eval-Print Loop). Tools: Python REPL"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "10/1/2024",
+    "Code": "W2D2",
+    "Type": "Technical",
+    "Module Name": "Python Fundamentals",
+    "Lesson Name": "Data Types and Operators",
+    "Concepts Covered": "Primitive data types; Type conversion; Arithmetic, comparison, logical operators. Tools: Python REPL"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "10/2/2024",
+    "Code": "W2D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Design your life",
+    "Concepts Covered": "Understanding hiring processes; Compensation and promotion timelines. Tools: Google resources, Career planning tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "10/3/2024",
+    "Code": "W2D4",
+    "Type": "Technical",
+    "Module Name": "Python Fundamentals",
+    "Lesson Name": "Control Flow (if, for, while)",
+    "Concepts Covered": "Conditional statements; Loops (for, while); Nested control flow constructs. Tools: Python REPL"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "10/7/2024",
+    "Code": "W3D1",
+    "Type": "Technical",
+    "Module Name": "Python Fundamentals",
+    "Lesson Name": "Functions and Scope",
+    "Concepts Covered": "Function definition; Parameters and arguments; Return values; Variable scope (local and global). Tools: Python REPL"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "10/8/2024",
+    "Code": "W3D2",
+    "Type": "Technical",
+    "Module Name": "Python Fundamentals",
+    "Lesson Name": "Lists and Tuples",
+    "Concepts Covered": "List and tuple operations; Indexing and slicing; Iterating over lists and tuples; List comprehension, generators vs tuples. Tools: Python REPL"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "10/9/2024",
+    "Code": "W3D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Authenticity vs Adaptability",
+    "Concepts Covered": "Personal branding; Networking strategies. Tools: Personal branding resources, Networking tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "10/10/2024",
+    "Code": "W3D4",
+    "Type": "Technical",
+    "Module Name": "Python Fundamentals",
+    "Lesson Name": "Dictionaries and Sets",
+    "Concepts Covered": "Dictionary operations; Key-value pairs; Set operations; Unique elements; dict comp; curly braces dict vs set. Tools: Python REPL"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "10/14/2024",
+    "Code": "W4D1",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "10/15/2024",
+    "Code": "W4D2",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "10/16/2024",
+    "Code": "W4D3",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "10/17/2024",
+    "Code": "W4D4",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "10/21/2024",
+    "Code": "W5D1",
+    "Type": "Technical",
+    "Module Name": "Python Advanced Concepts",
+    "Lesson Name": "Object-Oriented Programming",
+    "Concepts Covered": "Object-oriented programming principles; Classes and objects; Inheritance; Polymorphism; Encapsulation. Tools: Python REPL"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "10/22/2024",
+    "Code": "W5D2",
+    "Type": "Technical",
+    "Module Name": "Python Advanced Concepts",
+    "Lesson Name": "Modules and Packages",
+    "Concepts Covered": "Creating and importing modules; Using packages; Organizing code with modules and packages. Tools: Python REPL"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "10/23/2024",
+    "Code": "W5D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "How to build your networking algorithm?",
+    "Concepts Covered": "Advanced job search strategies; Building and leveraging a professional network; Preparing for interviews. Tools: Networking tools, LinkedIn"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "10/24/2024",
+    "Code": "W5D4",
+    "Type": "Technical",
+    "Module Name": "Python Advanced Concepts",
+    "Lesson Name": "File I/O and Exception Handling",
+    "Concepts Covered": "Reading and writing files; Handling exceptions; Using try/except blocks; File operations. Tools: Python REPL"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "10/28/2024",
+    "Code": "W6D1",
+    "Type": "Technical",
+    "Module Name": "Python Advanced Concepts",
+    "Lesson Name": "Dunder Methods and stdin",
+    "Concepts Covered": "Special methods in Python (__init__, __str__, etc.); Standard input handling. Tools: Python REPL"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "10/29/2024",
+    "Code": "W6D2",
+    "Type": "Technical",
+    "Module Name": "Python Advanced Concepts",
+    "Lesson Name": "Testing unittest and pytest",
+    "Concepts Covered": "Writing test cases; Using unittest framework; Using pytest framework; Test-driven development (TDD). Tools: unittest, pytest"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "10/30/2024",
+    "Code": "W6D3",
+    "Type": "Technical",
+    "Module Name": "ASSESSMENT",
+    "Lesson Name": "",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "10/31/2024",
+    "Code": "W6D4",
+    "Type": "Technical",
+    "Module Name": "Data Science",
+    "Lesson Name": "Data Cleaning and Preprocessing",
+    "Concepts Covered": "Data cleaning techniques; Handling missing data; Data preprocessing steps. Tools: Pandas"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "11/4/2024",
+    "Code": "W7D1",
+    "Type": "Technical",
+    "Module Name": "Data Science",
+    "Lesson Name": "Exploratory Data Analysis",
+    "Concepts Covered": "Descriptive statistics; Data visualization techniques; Identifying patterns and trends in data; matplotlib. Tools: Pandas, Matplotlib, Seaborn"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "11/5/2024",
+    "Code": "W7D2",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "11/6/2024",
+    "Code": "W7D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Resume",
+    "Concepts Covered": "Creating a professional resume; Highlighting skills and experiences; Tailoring resumes for specific job applications. Tools: Resume builders, Word processors"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "11/7/2024",
+    "Code": "W7D4",
+    "Type": "Technical",
+    "Module Name": "Data Science",
+    "Lesson Name": "Advanced Pandas",
+    "Concepts Covered": "Advanced data manipulation with Pandas; Grouping and aggregating data; Merging and joining data frames. Tools: Pandas"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "11/11/2024",
+    "Code": "W8D1",
+    "Type": "Technical",
+    "Module Name": "Big Data",
+    "Lesson Name": "Introduction to Hadoop and MapReduce",
+    "Concepts Covered": "Introduction to big data concepts; Setting up Hadoop; Writing and running MapReduce jobs. Tools: Hadoop, MapReduce, HDFS"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "11/12/2024",
+    "Code": "W8D2",
+    "Type": "Technical",
+    "Module Name": "Big Data",
+    "Lesson Name": "Apache Spark Basics",
+    "Concepts Covered": "Introduction to Apache Spark; Writing Spark applications; Understanding Spark architecture. Tools: Spark"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "11/13/2024",
+    "Code": "W8D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Build your brand",
+    "Concepts Covered": "Introduction to branding; Effective branding strategies; Building a personal brand. Tools: Branding resources, Social media tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "11/14/2024",
+    "Code": "W8D4",
+    "Type": "Technical",
+    "Module Name": "Big Data",
+    "Lesson Name": "Data Processing with PySpark",
+    "Concepts Covered": "Using PySpark for data processing; Writing and running PySpark applications; Optimizing PySpark jobs. Tools: PySpark"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "11/18/2024",
+    "Code": "W9D1",
+    "Type": "Technical",
+    "Module Name": "Big Data",
+    "Lesson Name": "A/B Testing and Experimentation",
+    "Concepts Covered": "Principles of A/B testing; Designing experiments; Analyzing experiment results. Tools: Statistical software, A/B testing tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "11/19/2024",
+    "Code": "W9D2",
+    "Type": "Technical",
+    "Module Name": "Machine Learning",
+    "Lesson Name": "Machine Learning Algorithms Overview",
+    "Concepts Covered": "Overview of common machine learning algorithms; Supervised and unsupervised learning; Algorithm evaluation metrics. Tools: Scikit-learn, TensorFlow"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "11/20/2024",
+    "Code": "W9D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Storytelling for your brand",
+    "Concepts Covered": "Effective storytelling techniques; Crafting a personal narrative; Leveraging social media for personal branding. Tools: Storytelling frameworks, Social media platforms"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "11/21/2024",
+    "Code": "W9D4",
+    "Type": "Technical",
+    "Module Name": "Machine Learning",
+    "Lesson Name": "Introduction to Deep Learning; TensorFlow/PyTorch",
+    "Concepts Covered": "Introduction to deep learning concepts; Setting up TensorFlow/PyTorch; Building and training neural networks. Tools: TensorFlow, PyTorch"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "11/25/2024",
+    "Code": "W10D1",
+    "Type": "Technical",
+    "Module Name": "Machine Learning",
+    "Lesson Name": "Introduction to Natural Language Processing (NLP) with Python",
+    "Concepts Covered": "Basics of NLP; Text preprocessing techniques; Tokenization; Named entity recognition (NER); Sentiment analysis; Introduction to NLP libraries (NLTK, spaCy). Tools: NLTK, spaCy"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "11/26/2024",
+    "Code": "W10D2",
+    "Type": "Technical",
+    "Module Name": "Web Fundamentals",
+    "Lesson Name": "Flask Introduction",
+    "Concepts Covered": "Setting up Flask; Basic routes and views; Templates; Handling form data. Tools: Flask"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "11/27/2024",
+    "Code": "W10D3",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "11/28/2024",
+    "Code": "W10D4",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "12/2/2024",
+    "Code": "W11D1",
+    "Type": "Technical",
+    "Module Name": "Web Fundamentals",
+    "Lesson Name": "RESTful API Design",
+    "Concepts Covered": "RESTful principles; Designing RESTful APIs; CRUD operations; Authentication and authorization. Tools: Flask, RESTful API"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "12/3/2024",
+    "Code": "W11D2",
+    "Type": "Technical",
+    "Module Name": "Web Fundamentals",
+    "Lesson Name": "Database Integration (SQLAlchemy)",
+    "Concepts Covered": "Database models; ORM concepts; Integrating SQLAlchemy with Flask; Performing database operations. Tools: Flask, SQLAlchemy"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "12/4/2024",
+    "Code": "W11D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Marketing your brand",
+    "Concepts Covered": "Introduction to marketing strategies; Building a professional brand; Utilizing online platforms for branding. Tools: Marketing resources, Online platforms"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "12/5/2024",
+    "Code": "W11D4",
+    "Type": "Technical",
+    "Module Name": "Web Fundamentals",
+    "Lesson Name": "Memory Management and Leak Prevention",
+    "Concepts Covered": "Memory allocation and deallocation; Identifying and preventing memory leaks; Tools for memory management. Tools: Memory profiling tools"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "12/9/2024",
+    "Code": "W12D1",
+    "Type": "Technical",
+    "Module Name": "Backend Development",
+    "Lesson Name": "Node.js Fundamentals",
+    "Concepts Covered": "Setting up Node.js; Writing server-side code; Handling requests and responses. Tools: Node.js"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "12/10/2024",
+    "Code": "W12D2",
+    "Type": "Technical",
+    "Module Name": "JavaScript Advanced",
+    "Lesson Name": "Asynchronous Programming",
+    "Concepts Covered": "Promises; async/await; Event loop; Handling asynchronous operations."
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "12/11/2024",
+    "Code": "W12D3",
+    "Type": "PDP",
+    "Module Name": "Personal Development",
+    "Lesson Name": "Public Speaking Skills",
+    "Concepts Covered": "Strategies and techniques for effective public speaking; Overcoming stage fright; Engaging the audience."
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "12/12/2024",
+    "Code": "W12D4",
+    "Type": "Technical",
+    "Module Name": "JavaScript Advanced",
+    "Lesson Name": "Closures and Prototypes",
+    "Concepts Covered": "Closures; Prototype chain; Inheritance in JavaScript."
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "12/16/2024",
+    "Code": "W13D1",
+    "Type": "Technical",
+    "Module Name": "JavaScript Advanced",
+    "Lesson Name": "Functional Programming",
+    "Concepts Covered": "Functional programming principles; Higher-order functions; Pure functions; Immutability."
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "12/17/2024",
+    "Code": "W13D2",
+    "Type": "Technical",
+    "Module Name": "JavaScript Advanced",
+    "Lesson Name": "Introduction to Data Visualization with D3.js",
+    "Concepts Covered": "Overview of data visualization principles; Setting up and using D3.js; Creating basic visualizations (bar charts, line charts, pie charts); Handling and transforming data for visualizations; Interactivity and animations in D3.js."
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "12/18/2024",
+    "Code": "W13D3",
+    "Type": "PDP",
+    "Module Name": "Interpersonal Development",
+    "Lesson Name": "The Conviction Narrative & The Background Check",
+    "Concepts Covered": "Crafting and presenting a conviction narrative; Handling background checks during job applications."
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "12/19/2024",
+    "Code": "W13D4",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "RESTful API Development with Express",
+    "Concepts Covered": "Setting up Express.js; Designing RESTful APIs; Middleware;"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "12/23/2024",
+    "Code": "W14D1",
+    "Type": "Holiday",
+    "Module Name": "",
+    "Lesson Name": "",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "12/24/2024",
+    "Code": "W14D2",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "12/25/2024",
+    "Code": "W14D3",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "12/26/2024",
+    "Code": "W14D4",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "12/30/2024",
+    "Code": "W15D1",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "12/31/2024",
+    "Code": "W15D2",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "1/1/2025",
+    "Code": "W15D3",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "1/2/2025",
+    "Code": "W15D4",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "GraphQL Basics",
+    "Concepts Covered": "Introduction to GraphQL; Writing queries and mutations; Setting up a GraphQL server."
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "1/6/2025",
+    "Code": "W16D1",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "Connecting React with Express Backend",
+    "Concepts Covered": "Setting up a MERN stack; Connecting React frontend to Express backend; Fetching data from backend."
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "1/7/2025",
+    "Code": "W16D2",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "State Management with Redux",
+    "Concepts Covered": "Introduction to Redux; State management principles; Connecting Redux with React; Step-through debugging session of Redux to understand the information flow."
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "1/8/2025",
+    "Code": "W16D3",
+    "Type": "PDP",
+    "Module Name": "Interpersonal Development",
+    "Lesson Name": "Sandra Matz (Negotiations)",
+    "Concepts Covered": "Negotiation strategies; Preparing for salary negotiations; Effective communication techniques."
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "1/9/2025",
+    "Code": "W16D4",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "WebSockets and Real-Time Applications",
+    "Concepts Covered": "Introduction to WebSockets; Real-time communication principles; Implementing WebSockets in MERN stack."
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "1/13/2025",
+    "Code": "W17D1",
+    "Type": "Technical",
+    "Module Name": "Frontend Development",
+    "Lesson Name": "Database Design and MongoDB Fundamentals",
+    "Concepts Covered": "Database design principles; Setting up MongoDB; CRUD operations; Indexing."
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "1/14/2025",
+    "Code": "W17D2",
+    "Type": "Technical",
+    "Module Name": "Frontend Development",
+    "Lesson Name": "Advanced MongoDB Queries and Aggregation",
+    "Concepts Covered": "Advanced querying techniques; Aggregation framework; Performance optimization."
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "1/15/2025",
+    "Code": "W17D3",
+    "Type": "PDP",
+    "Module Name": "Interpersonal Development",
+    "Lesson Name": "Conflict Resolution",
+    "Concepts Covered": "Techniques for resolving conflicts in professional settings; Effective communication skills."
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "1/16/2025",
+    "Code": "W17D4",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "SQL and Relational Databases: Deep Dive",
+    "Concepts Covered": "SQL querying techniques; Advanced joins; Transactions; Indexing and performance tuning."
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "1/20/2025",
+    "Code": "W18D1",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "1/21/2025",
+    "Code": "W18D2",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "Authentication and Authorization",
+    "Concepts Covered": "Implementing authentication and authorization; Using JWTs; Protecting routes."
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "1/22/2025",
+    "Code": "W18D3",
+    "Type": "PDP",
+    "Module Name": "Interpersonal Development",
+    "Lesson Name": "Working in Teams",
+    "Concepts Covered": "Strategies for effective teamwork; Collaboration tools; Conflict resolution techniques."
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "1/23/2025",
+    "Code": "W18D4",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "React Hooks",
+    "Concepts Covered": "Introduction to React hooks; Using hooks for state and lifecycle management; Custom hooks."
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "1/27/2025",
+    "Code": "W19D1",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "React Patterns",
+    "Concepts Covered": "Higher-order components; Render props; Context API; Compound components; Controlled and uncontrolled components."
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "1/28/2025",
+    "Code": "W19D2",
+    "Type": "Technical",
+    "Module Name": "Full Stack Development",
+    "Lesson Name": "React Performance Optimization",
+    "Concepts Covered": "Performance optimization techniques; Code splitting; Memoization; Profiling."
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "1/29/2025",
+    "Code": "W19D3",
+    "Type": "PDP",
+    "Module Name": "Interpersonal Development",
+    "Lesson Name": "Immunity to Change",
+    "Concepts Covered": "Identifying personal barriers to change; Strategies for overcoming resistance to change. Tools: Change management resources"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "1/30/2025",
+    "Code": "W19D4",
+    "Type": "Technical",
+    "Module Name": "Software Testing",
+    "Lesson Name": "JavaScript Testing with Jest",
+    "Concepts Covered": "Writing test cases; Using Jest framework; Test-driven development (TDD). Tools: Jest"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "2/3/2025",
+    "Code": "W20D1",
+    "Type": "Technical",
+    "Module Name": "Software Testing",
+    "Lesson Name": "End-to-End Testing with Cypress",
+    "Concepts Covered": "Setting up Cypress; Writing end-to-end tests; Running tests in different environments. Tools: Cypress"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "2/4/2025",
+    "Code": "W20D2",
+    "Type": "Technical",
+    "Module Name": "Software Quality",
+    "Lesson Name": "Advanced Error Handling and Logging",
+    "Concepts Covered": "Error handling strategies; Logging frameworks; Monitoring and alerting. Tools: Log management tools"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "2/5/2025",
+    "Code": "W20D3",
+    "Type": "PDP",
+    "Module Name": "Interpersonal Development",
+    "Lesson Name": "EI",
+    "Concepts Covered": "Emotional intelligence; Self-awareness; Self-regulation; Motivation; Empathy; Social skills. Tools: Emotional intelligence assessment tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "2/6/2025",
+    "Code": "W20D4",
+    "Type": "Technical",
+    "Module Name": "System Architecture",
+    "Lesson Name": "Software Design Patterns and Best Practices",
+    "Concepts Covered": "Common design patterns (Singleton, Factory, Observer, etc.); Best practices for software design. Tools: Design pattern books"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "2/10/2025",
+    "Code": "W21D1",
+    "Type": "Technical",
+    "Module Name": "System Architecture",
+    "Lesson Name": "Monoliths vs Microservices Architecture",
+    "Concepts Covered": "Monolithic architecture principles; Microservices architecture principles; Pros and cons of each. Tools: Architecture design tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "2/11/2025",
+    "Code": "W21D2",
+    "Type": "Technical",
+    "Module Name": "System Architecture",
+    "Lesson Name": "In-depth Concepts in Distributed Systems",
+    "Concepts Covered": "Fundamentals of distributed systems; Challenges in distributed computing; Consistency, availability, and partition tolerance (CAP theorem); Strategies for fault tolerance and replication. Tools: Distributed system tools"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "2/12/2025",
+    "Code": "W21D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "The job search (Beyond the two hour job search)",
+    "Concepts Covered": "Effective job search strategies;Networking techniques; Job application processes. Tools: Job search platforms, LinkedIn"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "2/13/2025",
+    "Code": "W21D4",
+    "Type": "Technical",
+    "Module Name": "System Architecture",
+    "Lesson Name": "Messaging and Queues in Distributed Systems",
+    "Concepts Covered": "Message queue concepts; Implementing message queues; Use cases for messaging. Tools: RabbitMQ, Kafka"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "2/17/2025",
+    "Code": "W22D1",
+    "Type": "Technical",
+    "Module Name": "Cloud Computing",
+    "Lesson Name": "Cloud Computing Fundamentals",
+    "Concepts Covered": "Introduction to cloud computing; Cloud service models (IaaS, PaaS, SaaS); Major cloud providers. Tools: AWS, Azure, Google Cloud"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "2/18/2025",
+    "Code": "W22D2",
+    "Type": "Technical",
+    "Module Name": "Cloud Computing",
+    "Lesson Name": "Serverless Architecture",
+    "Concepts Covered": "Introduction to serverless computing; Benefits of serverless architecture; Setting up serverless applications. Tools: AWS Lambda, Google Cloud Functions, Azure Functions"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "2/19/2025",
+    "Code": "W22D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "The job search mindset",
+    "Concepts Covered": "Developing a proactive job search mindset; Setting career goals; Building resilience in job hunting. Tools: Career planning tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "2/20/2025",
+    "Code": "W22D4",
+    "Type": "Technical",
+    "Module Name": "Cloud Computing",
+    "Lesson Name": "Cloud Computing with AWS",
+    "Concepts Covered": "Introduction to Amazon Web Services (AWS); Setting up and managing AWS services; Deploying applications on AWS; Best practices for cloud security and cost management. Tools: AWS"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "2/24/2025",
+    "Code": "W23D1",
+    "Type": "Technical",
+    "Module Name": "DevOps & Deployment",
+    "Lesson Name": "DevOps and CI/CD",
+    "Concepts Covered": "DevOps principles; Continuous Integration and Continuous Deployment; Tools for CI/CD. Tools: Jenkins, Travis CI, CircleCI"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "2/25/2025",
+    "Code": "W23D2",
+    "Type": "Technical",
+    "Module Name": "DevOps & Deployment",
+    "Lesson Name": "CI/CD with GitHub Actions",
+    "Concepts Covered": "Introduction to CI/CD pipelines; Setting up GitHub Actions for CI/CD; Automating tests and deployments; Best practices for CI/CD. Tools: GitHub Actions"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "2/26/2025",
+    "Code": "W23D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "Interview experiences",
+    "Concepts Covered": "Mock interviews; Feedback sessions; Improving interview skills. Tools: Interview simulation platforms"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "2/27/2025",
+    "Code": "W23D4",
+    "Type": "Technical",
+    "Module Name": "DevOps & Deployment",
+    "Lesson Name": "Advanced DevOps Practices and Infrastructure as Code with Terraform",
+    "Concepts Covered": "Advanced CI/CD pipelines; Fundamentals of Infrastructure as Code; Introduction to Terraform; Writing Terraform configuration files; Managing infrastructure with Terraform; Monitoring and alerting tools; Best practices for IaC. Tools: Terraform, AWS"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "3/3/2025",
+    "Code": "W24D1",
+    "Type": "Technical",
+    "Module Name": "DevOps & Deployment",
+    "Lesson Name": "Containerization and Orchestration: Docker and Kubernetes",
+    "Concepts Covered": "Advanced Docker setup; Creating and managing multi-container applications; Introduction to Kubernetes; Deploying and scaling applications with Kubernetes; Kubernetes architecture and components. Tools: Docker, Kubernetes"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "3/4/2025",
+    "Code": "W24D2",
+    "Type": "Technical",
+    "Module Name": "DevOps & Deployment",
+    "Lesson Name": "Deployment and DevOps for MERN Stack Applications",
+    "Concepts Covered": "Deploying MERN stack applications; Setting up CI/CD pipelines for MERN stack; Monitoring and alerting. Tools: MERN stack, Jenkins, Travis CI"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "3/5/2024",
+    "Code": "W24D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "Interview Lab 1",
+    "Concepts Covered": "Effective decision-making for job offers and strategies for the first 90 days on the job. Tools: Decision-making frameworks"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "3/6/2025",
+    "Code": "W24D4",
+    "Type": "Technical",
+    "Module Name": "DevOps & Deployment",
+    "Lesson Name": "Docker for MERN Stack Applications",
+    "Concepts Covered": "Setting up Docker; Containerizing MERN stack applications; Managing Docker containers. Tools: Docker"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "3/10/2025",
+    "Code": "W25D1",
+    "Type": "Technical",
+    "Module Name": "Cybersecurity",
+    "Lesson Name": "Web Security Fundamentals",
+    "Concepts Covered": "Common web security threats; Security best practices; Implementing security measures in web applications. Tools: OWASP, Web security tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "3/11/2025",
+    "Code": "W25D2",
+    "Type": "Technical",
+    "Module Name": "Cybersecurity",
+    "Lesson Name": "Auth0 I Setup and Integration with React",
+    "Concepts Covered": "Setting up Auth0; Integrating Auth0 with React; Handling authentication and authorization. Tools: Auth0, React"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "3/12/2025",
+    "Code": "W25D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "Interview Lab 2",
+    "Concepts Covered": "Mock interviews focused on cybersecurity roles; Feedback and improvement strategies. Tools: Interview simulation platforms"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "3/13/2025",
+    "Code": "W25D4",
+    "Type": "Technical",
+    "Module Name": "Cybersecurity",
+    "Lesson Name": "Auth0 II Integration with Node.js Backend",
+    "Concepts Covered": "Integrating Auth0 with Node.js; Handling authentication and authorization in Node.js applications. Tools: Auth0, Node.js"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "3/17/2025",
+    "Code": "W26D1",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "3/18/2025",
+    "Code": "W26D2",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "3/19/2025",
+    "Code": "W26D3",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "3/20/2025",
+    "Code": "W26D4",
+    "Type": "Holiday",
+    "Module Name": "Holiday",
+    "Lesson Name": "Holiday",
+    "Concepts Covered": ""
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "3/24/2025",
+    "Code": "W27D1",
+    "Type": "Technical",
+    "Module Name": "Cybersecurity",
+    "Lesson Name": "Auth0 III Advanced Features and Best Practices",
+    "Concepts Covered": "Advanced features of Auth0; Implementing best practices for security; Monitoring and managing Auth0 integrations. Tools: Auth0"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "3/25/2025",
+    "Code": "W27D2",
+    "Type": "Technical",
+    "Module Name": "Cybersecurity",
+    "Lesson Name": "Web Security and Ethical Hacking",
+    "Concepts Covered": "Common web security threats (SQL injection, XSS, CSRF); Security best practices; Basics of ethical hacking; Tools for web security assessment; Implementing security measures in web applications. Tools: Ethical hacking tools, OWASP"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "3/26/2025",
+    "Code": "W27D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "Google session",
+    "Concepts Covered": "TBD"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "3/27/2025",
+    "Code": "W27D4",
+    "Type": "Technical",
+    "Module Name": "System Architecture",
+    "Lesson Name": "CDNs, Caching, and Load Balancing",
+    "Concepts Covered": "Content Delivery Networks (CDNs); Caching strategies; Load balancing techniques; Implementing load balancing; Using CDNs for performance improvement; Designing high-availability systems. Tools: CDNs, Caching tools, Load balancers"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "3/31/2025",
+    "Code": "W28D1",
+    "Type": "Technical",
+    "Module Name": "System Architecture",
+    "Lesson Name": "Scalability and Performance Optimization Techniques",
+    "Concepts Covered": "Scalability principles; Performance optimization techniques; Tools for monitoring and improving performance. Tools: Monitoring tools, Performance optimization tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "4/1/2025",
+    "Code": "W28D2",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Agile Development and Scrum for Capstone",
+    "Concepts Covered": "Introduction to Agile development; Scrum framework; Planning and executing Agile projects. Tools: Scrum tools, Jira, Trello"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "4/2/2025",
+    "Code": "W28D3",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Project Management and Agile Methodologies",
+    "Concepts Covered": "Project management principles; Agile methodologies; Tools for project management. Tools: Project management software (e.g., Asana, Jira)"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "4/3/2025",
+    "Code": "W28D4",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Capstone Ideation, Project Planning, and Team Formation Video Requirements",
+    "Concepts Covered": "Brainstorming project ideas; Planning project scope and deliverables; Forming project teams. Tools: Brainstorming tools, Project planning software"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "4/7/2025",
+    "Code": "W29D1",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Wireframing and ER Diagram Design",
+    "Concepts Covered": "Creating wireframes for UI/UX design; Designing ER diagrams for database schema. Tools: Wireframing tools (e.g., Balsamiq, Figma), ER diagram tools (e.g., Lucidchart)"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "4/8/2025",
+    "Code": "W29D2",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Documentation and Technical Writing",
+    "Concepts Covered": "Best practices for documentation; Technical writing skills; Creating clear and concise documentation. Tools: Documentation tools (e.g., Confluence), Word processors"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "4/9/2025",
+    "Code": "W29D3",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Code Review Best Practices",
+    "Concepts Covered": "Conducting effective code reviews; Providing constructive feedback; Utilizing code review tools. Tools: GitHub, Bitbucket"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "4/10/2025",
+    "Code": "W29D4",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Capstone Idea Peer Review ('Speed Dating')",
+    "Concepts Covered": "Presenting and receiving feedback on capstone project ideas; Iterating on project ideas based on feedback. Tools: Feedback tools, Collaborative platforms"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "4/14/2025",
+    "Code": "W30D1",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Advanced Testing Strategies for MERN Stack",
+    "Concepts Covered": "Writing comprehensive tests for MERN stack applications; Using testing frameworks; Ensuring code quality. Tools: Jest, Cypress, Mocha"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "4/15/2025",
+    "Code": "W30D2",
+    "Type": "Technical",
+    "Module Name": "Systems Design",
+    "Lesson Name": "Basics and Scalability",
+    "Concepts Covered": "System design principles; Designing scalable systems; Evaluating system performance. Tools: System design tools"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "4/16/2025",
+    "Code": "W30D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "Internships",
+    "Concepts Covered": "Finding and applying for internships; Making the most of internship opportunities. Tools: Internship platforms (e.g., LinkedIn, Indeed)"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "4/17/2025",
+    "Code": "W30D4",
+    "Type": "Technical",
+    "Module Name": "Systems Design",
+    "Lesson Name": "Databases and Caching",
+    "Concepts Covered": "Database design principles; Implementing caching strategies; Optimizing database performance. Tools: Databases (e.g., MySQL, MongoDB), Caching tools (e.g., Redis)"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "4/21/2025",
+    "Code": "W31D1",
+    "Type": "Technical",
+    "Module Name": "Systems Design",
+    "Lesson Name": "Microservices and API Design",
+    "Concepts Covered": "Designing microservices architecture; Best practices for API design; Implementing and managing microservices. Tools: Microservices tools, API design tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "4/22/2025",
+    "Code": "W31D2",
+    "Type": "Technical",
+    "Module Name": "Systems Design",
+    "Lesson Name": "Threading, Locks, and Race Conditions",
+    "Concepts Covered": "Multi-threading in Python; Synchronization mechanisms (locks, semaphores); Avoiding race conditions. Tools: Python threading libraries"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "4/23/2025",
+    "Code": "W31D3",
+    "Type": "PDP",
+    "Module Name": "Career Development",
+    "Lesson Name": "Making good choices: The job offer and the first 90 days",
+    "Concepts Covered": "Evaluating job offers; Negotiation strategies; Planning for success in the first 90 days. Tools: Career planning tools, Negotiation frameworks"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "4/24/2025",
+    "Code": "W31D4",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Capstone MVP Presentations",
+    "Concepts Covered": "Presenting capstone projects; Receiving feedback from peers and instructors. Tools: Presentation software (e.g., PowerPoint, Google Slides)"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "4/28/2025",
+    "Code": "W32D1",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Open Source Contribution Workshop",
+    "Concepts Covered": "Contributing to open source projects; Finding projects to contribute to; Best practices for open source contributions. Tools: GitHub, GitLab"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "4/29/2025",
+    "Code": "W32D2",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Time Complexity and Big O Notation",
+    "Concepts Covered": "Understanding time complexity; Analyzing algorithms using Big O notation; Optimizing algorithm performance. Tools: Algorithm visualization tools"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "4/30/2025",
+    "Code": "W32D3",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Sorting Algorithms",
+    "Concepts Covered": "Common sorting algorithms; Implementing sorting algorithms; Comparing algorithm efficiencies. Tools: Algorithm visualization tools"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "5/1/2025",
+    "Code": "W32D4",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Searching Algorithms",
+    "Concepts Covered": "Common searching algorithms; Implementing searching algorithms; Comparing algorithm efficiencies. Tools: Algorithm visualization tools"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "5/5/2025",
+    "Code": "W33D1",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Dynamic Programming",
+    "Concepts Covered": "Principles of dynamic programming; Solving problems using dynamic programming; Common dynamic programming problems. Tools: Algorithm visualization tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "5/6/2025",
+    "Code": "W33D2",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Graph Algorithms",
+    "Concepts Covered": "Common graph algorithms; Implementing graph algorithms; Analyzing graph algorithm performance. Tools: Algorithm visualization tools"
+  },
+  {
+    "DOW": "Wednesday",
+    "DATE": "5/7/2025",
+    "Code": "W33D3",
+    "Type": "Technical",
+    "Module Name": "Capstone Project",
+    "Lesson Name": "Capstone Final Presentation",
+    "Concepts Covered": "Presenting final capstone projects; Receiving feedback and evaluations. Tools: Presentation software (e.g., PowerPoint, Google Slides)"
+  },
+  {
+    "DOW": "Thursday",
+    "DATE": "5/8/2025",
+    "Code": "W33D4",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Arrays and Linked Lists",
+    "Concepts Covered": "Understanding arrays and linked lists; Implementing arrays and linked lists; Comparing data structures. Tools: Data structure visualization tools"
+  },
+  {
+    "DOW": "Monday",
+    "DATE": "5/12/2025",
+    "Code": "W34D1",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Stacks and Queues",
+    "Concepts Covered": "Understanding stacks and queues; Implementing stacks and queues; Comparing data structures. Tools: Data structure visualization tools"
+  },
+  {
+    "DOW": "Tuesday",
+    "DATE": "5/13/2025",
+    "Code": "W34D2",
+    "Type": "Technical",
+    "Module Name": "Interview Preparation",
+    "Lesson Name": "Trees and Graphs",
+    "Concepts Covered": "Understanding trees and graphs; Implementing trees and graphs; Comparing data structures. Tools: Data structure visualization tools"
+  }
+]

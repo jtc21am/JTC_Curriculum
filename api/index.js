@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const websocket = require('./websocket'); // WebSocket integration
+const websocket = require('./api/websocket'); // WebSocket integration
 const { expressjwt: jwtMiddleware } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 

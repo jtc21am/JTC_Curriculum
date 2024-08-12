@@ -1,0 +1,6 @@
+name,email,sub,linkedin,bio,employer,title,gitHub,picture
+John Doe,john.doe@example.com,auth0|123456,https://www.linkedin.com/in/johndoe,Passionate developer with 5 years of experience,TechCorp,Senior Developer,https://github.com/johndoe,https://example.com/johndoe.jpg
+Jane Smith,jane.smith@example.com,auth0|789012,https://www.linkedin.com/in/janesmith,AI enthusiast and machine learning expert,AI Innovations,Data Scientist,https://github.com/janesmith,https://example.com/janesmith.jpg
+Bob Johnson,bob.johnson@example.com,auth0|345678,https://www.linkedin.com/in/bobjohnson,Full-stack developer specializing in MERN stack,WebSolutions,Full Stack Engineer,https://github.com/bobjohnson,https://example.com/bobjohnson.jpg
+Alice Brown,alice.brown@example.com,auth0|901234,https://www.linkedin.com/in/alicebrown,UX/UI designer with a passion for user-centric design,DesignHub,UX Designer,https://github.com/alicebrown,https://example.com/alicebrown.jpg
+Charlie Wilson,charlie.wilson@example.com,auth0|567890,https://www.linkedin.com/in/charliewilson,DevOps engineer focusing on cloud technologies,CloudTech,DevOps Engineer,https://github.com/charliewilson,https://example.com/charliewilson.jpg

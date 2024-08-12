@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Your Application</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="curriculum.html">Curriculum</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact-suggestions.html">Contact Us & Suggestions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+                </ul>
+                <button id="login" class="btn btn-primary">Login</button>
+                <button id="logout" class="btn btn-danger" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>User Profile</h1>
+        <div id="profile-content" style="display: none;">
+            <form id="profile-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="bio" class="form-label">Bio</label>
+                    <textarea class="form-control" id="bio" name="bio" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="linkedin" class="form-label">LinkedIn</label>
+                    <input type="url" class="form-control" id="linkedin" name="linkedin">
+                </div>
+                <div class="mb-3">
+                    <label for="employer" class="form-label">Employer</label>
+                    <input type="text" class="form-control" id="employer" name="employer">
+                </div>
+                <div class="mb-3">
+                    <label for="jobTitle" class="form-label">Job Title</label>
+                    <input type="text" class="form-control" id="jobTitle" name="jobTitle">
+                </div>
+                <div class="mb-3">
+                    <label for="github" class="form-label">GitHub</label>
+                    <input type="url" class="form-control" id="github" name="github">
+                </div>
+                <div class="mb-3">
+                    <label for="profilePhoto" class="form-label">Profile Photo URL</label>
+                    <input type="url" class="form-control" id="profilePhoto" name="profilePhoto">
+                </div>
+                <div class="mb-3">
+                    <img id="profilePhotoPreview" src="" alt="Profile Photo" style="max-width: 200px; display: none;">
+                </div>
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+        </div>
+        <div id="login-message">
+            <p>Please log in to view and edit your profile.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="/js/client.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>
