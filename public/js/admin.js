@@ -16,7 +16,7 @@ async function initAdminPage() {
             domain: 'dev-gkgncylqchbqob52.us.auth0.com',
             clientId: 'toUxIMe4zjdTVnYoeqM9RS7MyOpbetBS',
             authorizationParams: {
-                redirect_uri: window.location.origin
+                redirect_uri: window.location.origin + '/callback'
             }
         });
 
