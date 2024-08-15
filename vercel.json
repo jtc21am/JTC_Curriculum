@@ -2,18 +2,15 @@
   "version": 2,
   "builds": [
     { "src": "server.js", "use": "@vercel/node" },
-    { "src": "src/pages/**/*", "use": "@vercel/static" },
-    { "src": "src/public/**/*", "use": "@vercel/static" }
-
+    { "src": "pages/**/*.html", "use": "@vercel/static" },
+    { "src": "public/**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "src/server.js" },
-    { "handle": "filesystem" },
-    { "src": "/js/(.*)", "dest": "src/public/js/$1" }, 
-    { "src": "/images/(.*)", "dest": "src/public/images/$1" }, 
-    { "src": "/login", "dest": "src/pages/index.html" },
-    { "src": "/(.*)", "dest": "src/pages/$1" },
-    { "src": "/(.*)", "dest": "src/pages/index.html" }
-  
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/js/(.*)", "dest": "/public/js/$1" },
+    { "src": "/images/(.*)", "dest": "/public/images/$1" },
+    { "src": "/login", "dest": "/pages/login.html" },
+    { "src": "/", "dest": "/pages/index.html" },
+    { "src": "/(.*)", "dest": "/pages/$1.html" }
   ]
 }
