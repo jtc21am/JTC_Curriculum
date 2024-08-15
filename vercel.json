@@ -1,17 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/server.js", "use": "@vercel/node" },
-    { "src": "src/pages/**/*.html", "use": "@vercel/static" },
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "src/pages/**/*", "use": "@vercel/static" },
     { "src": "src/public/**/*", "use": "@vercel/static" }
+
   ],
   "routes": [
-
-    { "src": "/api/auth/(.*)", "dest": "src/server.js" },
+    { "src": "/api/(.*)", "dest": "src/server.js" },
     { "handle": "filesystem" },
     { "src": "/js/(.*)", "dest": "src/public/js/$1" }, 
     { "src": "/images/(.*)", "dest": "src/public/images/$1" }, 
-    { "src": "/login", "dest": "src/pages/login.html" },
+    { "src": "/login", "dest": "src/pages/index.html" },
     { "src": "/(.*)", "dest": "src/pages/$1" },
     { "src": "/(.*)", "dest": "src/pages/index.html" }
   
