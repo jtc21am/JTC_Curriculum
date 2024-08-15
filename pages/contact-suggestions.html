@@ -9,48 +9,11 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Your Application</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="curriculum.html">Curriculum</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact-suggestions.html">Contact Us & Suggestions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-                </ul>
-                <button id="login" class="btn btn-primary">Login</button>
-                <button id="logout" class="btn btn-danger" style="display: none;">Logout</button>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
+    <!-- Main content -->
     <div id="app" class="container mt-5">
-        <h1>Contact Us & Suggestions</h1>
-        <div id="contact-form" style="display: none;">
-            <form id="suggestion-form">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message or Suggestion</label>
-                    <textarea class="form-control" id="message" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-        <div id="login-message">
-            <p>Please log in to access the contact form and submit suggestions.</p>
-        </div>
+        <!-- Content will be injected by contacts-suggestions.js -->
     </div>
 
     <!-- Bootstrap JS -->
@@ -61,62 +24,11 @@
     
     <!-- Your client.js script -->
     <script src="/js/client.js"></script>
-    
-    <script>
-        // This script is specific to the contact suggestions page
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-            const loginMessage = document.getElementById('login-message');
-            const suggestionForm = document.getElementById('suggestion-form');
 
-            function updateContactFormDisplay(isAuthenticated) {
-                if (isAuthenticated) {
-                    contactForm.style.display = 'block';
-                    loginMessage.style.display = 'none';
-                } else {
-                    contactForm.style.display = 'none';
-                    loginMessage.style.display = 'block';
-                }
-            }
+    <!-- Navbar script -->
+    <script src="/js/navbar.js"></script>
 
-            // Initial check
-            if (typeof auth0 !== 'undefined') {
-                auth0.createAuth0Client({
-                    domain: 'dev-gkgncylqchbqob52.us.auth0.com',
-                    clientId: 'toUxIMe4zjdTVnYoeqM9RS7MyOpbetBS',
-                    authorizationParams: {
-                        redirect_uri: window.location.origin + '/callback'
-                    }
-                }).then(auth0Client => {
-                    auth0Client.isAuthenticated().then(isAuthenticated => {
-                        updateContactFormDisplay(isAuthenticated);
-                    });
-                });
-            }
-
-            // Listen for auth state changes
-            window.addEventListener('auth0:login', function() {
-                updateContactFormDisplay(true);
-            });
-            window.addEventListener('auth0:logout', function() {
-                updateContactFormDisplay(false);
-            });
-
-            // Handle form submission
-            if (suggestionForm) {
-                suggestionForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    // Here you would typically send the form data to your server
-                    console.log('Form submitted:', {
-                        name: document.getElementById('name').value,
-                        email: document.getElementById('email').value,
-                        message: document.getElementById('message').value
-                    });
-                    alert('Thank you for your suggestion!');
-                    suggestionForm.reset();
-                });
-            }
-        });
-    </script>
+    <!-- Contacts & Suggestions script -->
+    <script src="/js/contacts-suggestions.js"></script>
 </body>
 </html>

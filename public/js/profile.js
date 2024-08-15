@@ -1,13 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const profileContent = document.getElementById('profile-content');
     const loginMessage = document.getElementById('login-message');
     const profileForm = document.getElementById('profile-form');
     const profilePhotoPreview = document.getElementById('profilePhotoPreview');
 
-    function updateProfileDisplay() {
-        const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    async function updateProfileDisplay() {
+        // Wait until auth0Client is available
+        let auth0Client;
+        while (!window.auth0Client) {
+            await new Promise(resolve => setTimeout(resolve, 100)); // Wait for 100ms
+            auth0Client = window.auth0Client;
+        }
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        console.log('Is authenticated:', isAuthenticated);
+
         if (isAuthenticated) {
-            const user = JSON.parse(localStorage.getItem('user'));
+            const user = await auth0Client.getUser();
             document.getElementById('name').value = user.name || '';
             document.getElementById('email').value = user.email || '';
             document.getElementById('bio').value = user.bio || '';
@@ -34,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateProfileDisplay();
 
-    window.addEventListener('authStateChanged', () => {
-        updateProfileDisplay();
+    window.addEventListener('authStateChanged', async () => {
+        await updateProfileDisplay();
     });
 
     document.getElementById('profilePhoto').addEventListener('input', (e) => {
@@ -50,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     profileForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
         const updatedProfile = {
             name: document.getElementById('name').value,
             bio: document.getElementById('bio').value,
@@ -59,12 +69,33 @@ document.addEventListener('DOMContentLoaded', () => {
             github: document.getElementById('github').value,
             profilePhoto: document.getElementById('profilePhoto').value
         };
+        
         console.log('Updating profile:', updatedProfile);
-        // Here you would send this data to your server to update the user's profile
-        // For now, we'll just update the local storage
-        const user = JSON.parse(localStorage.getItem('user'));
-        const updatedUser = { ...user, ...updatedProfile };
-        localStorage.setItem('user', JSON.stringify(updatedUser));
-        alert('Profile updated successfully!');
+
+        try {
+            // Assume we have an endpoint to update user profile information
+            const user = await auth0Client.getUser();
+            const response = await fetch(`/api/update-profile/${user.sub}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedProfile),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            // Update the Auth0 user profile
+            const updatedUser = { ...user, ...updatedProfile };
+            // Optionally update local storage or application state
+            localStorage.setItem('user', JSON.stringify(updatedUser));
+
+            alert('Profile updated successfully!');
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            alert('Failed to update profile. Please try again.');
+        }
     });
 });

@@ -1,25 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const userInfoDiv = document.getElementById('user-info');
     const loginMessage = document.getElementById('login-message');
 
-    function updateHomeDisplay() {
-        const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    async function updateHomeDisplay() {
+        // Wait until auth0Client is available
+        let auth0Client;
+        while (!window.auth0Client) {
+            await new Promise(resolve => setTimeout(resolve, 100)); // Wait for 100ms
+            auth0Client = window.auth0Client;
+        }
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
         console.log('Is authenticated:', isAuthenticated);
+
         if (isAuthenticated) {
             userInfoDiv.style.display = 'block';
             loginMessage.style.display = 'none';
-            displayUserInfo();
+            await displayUserInfo(auth0Client);
         } else {
             userInfoDiv.style.display = 'none';
             loginMessage.style.display = 'block';
         }
     }
 
-    async function displayUserInfo() {
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (!user) return;
-
+    async function displayUserInfo(auth0Client) {
         try {
+            const user = await auth0Client.getUser();
+            if (!user) return;
+
             const response = await fetch(`/api/user-lessons/${user.sub}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -31,12 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const notConfirmedLessons = lessons.filter(lesson => lesson.confirmedLecturer && lesson.confirmedLecturer !== user.name);
 
             userInfoDiv.innerHTML = `
-                <h2>Welcome, ${user.name}!</h2>
-                <h3>Your Pending Requests:</h3>
+                <h3>Welcome, ${user.name}!</h3>
+                <br>
+                <h4>Your Pending Requests:</h4>
                 <ul>${pendingLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}</ul>
-                <h3>Your Confirmed Lectures:</h3>
+                <br>
+                <h4>Your Confirmed Lectures:</h4>
                 <ul>${confirmedLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}</ul>
-                <h3>Your Not-Confirmed Lectures:</h3>
+                <br>
+                <h4>Your Not-Confirmed Lectures:</h4>
                 <ul>${notConfirmedLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}</ul>
             `;
 
@@ -49,10 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Initialize home display on load
     updateHomeDisplay();
 
-    window.addEventListener('authStateChanged', () => {
+    // Listen for authentication state changes
+    window.addEventListener('authStateChanged', async () => {
         console.log('Auth state changed, updating home display');
-        updateHomeDisplay();
+        await updateHomeDisplay();
     });
 });

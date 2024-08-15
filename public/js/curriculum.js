@@ -1,22 +1,30 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const curriculumContent = document.getElementById('curriculum-content');
     const loginMessage = document.getElementById('login-message');
     const curriculumTableDiv = document.getElementById('curriculumTable');
 
-    function updateCurriculumDisplay() {
-        const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    async function updateCurriculumDisplay() {
+        // Wait until auth0Client is available
+        let auth0Client;
+        while (!window.auth0Client) {
+            await new Promise(resolve => setTimeout(resolve, 100)); // Wait for 100ms
+            auth0Client = window.auth0Client;
+        }
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
         console.log('Is authenticated:', isAuthenticated);
+
         if (isAuthenticated) {
             curriculumContent.style.display = 'block';
             loginMessage.style.display = 'none';
-            fetchCurriculumData();
+            await fetchCurriculumData(auth0Client);
         } else {
             curriculumContent.style.display = 'none';
             loginMessage.style.display = 'block';
         }
     }
 
-    async function fetchCurriculumData() {
+    async function fetchCurriculumData(auth0Client) {
         try {
             console.log('Fetching curriculum data...');
             const response = await fetch('/api/curriculum');
@@ -26,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             console.log('Curriculum data:', data);
             if (data.length > 0) {
-                renderCurriculumTable(data);
+                renderCurriculumTable(data, auth0Client);
             } else {
                 curriculumTableDiv.textContent = 'No curriculum data available.';
             }
@@ -36,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function renderCurriculumTable(items) {
+    function renderCurriculumTable(items, auth0Client) {
         console.log('Rendering curriculum table with', items.length, 'items');
         const table = document.createElement('table');
         table.className = 'table table-striped';
@@ -56,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <th>Request to Teach</th>
                 <th>Status</th>
                 <th>Confirmed Lecturer</th>
-                ${isAdmin() ? '<th>Admin Actions</th>' : ''}
+                ${isAdmin(auth0Client) ? '<th>Admin Actions</th>' : ''}
             </tr>
         `;
         table.appendChild(thead);
@@ -74,10 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${item['Lesson Name'] || ''}</td>
                 <td>${item['Concepts Covered'] || ''}</td>
                 <td>${item.Purpose || ''}</td>
-                <td><input type="checkbox" class="request-checkbox" data-lesson-id="${item._id}" ${isLessonRequested(item) ? 'checked' : ''}></td>
-                <td>${getStatus(item)}</td>
+                <td><input type="checkbox" class="request-checkbox" data-lesson-id="${item._id}" ${isLessonRequested(item, auth0Client) ? 'checked' : ''}></td>
+                <td>${getStatus(item, auth0Client)}</td>
                 <td>${item.confirmedLecturer || ''}</td>
-                ${isAdmin() ? `<td><button class="btn btn-sm btn-primary confirm-lecturer" data-lesson-id="${item._id}">Confirm Lecturer</button></td>` : ''}
+                ${isAdmin(auth0Client) ? `<td><button class="btn btn-sm btn-primary confirm-lecturer" data-lesson-id="${item._id}">Confirm Lecturer</button></td>` : ''}
             `;
             tbody.appendChild(row);
         });
@@ -91,25 +99,25 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.request-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', handleCheckboxChange);
         });
-        if (isAdmin()) {
+        if (isAdmin(auth0Client)) {
             document.querySelectorAll('.confirm-lecturer').forEach(button => {
                 button.addEventListener('click', handleConfirmLecturer);
             });
         }
     }
 
-    function isAdmin() {
-        const user = JSON.parse(localStorage.getItem('user'));
+    function isAdmin(auth0Client) {
+        const user = auth0Client ? auth0Client.getUser() : null;
         return user && user.isAdmin;
     }
 
-    function isLessonRequested(lesson) {
-        const user = JSON.parse(localStorage.getItem('user'));
+    function isLessonRequested(lesson, auth0Client) {
+        const user = auth0Client ? auth0Client.getUser() : null;
         return user && lesson.requests && lesson.requests.some(req => req.userId === user.sub);
     }
 
-    function getStatus(lesson) {
-        const user = JSON.parse(localStorage.getItem('user'));
+    function getStatus(lesson, auth0Client) {
+        const user = auth0Client ? auth0Client.getUser() : null;
         if (!user) return '';
         const userRequest = lesson.requests && lesson.requests.find(req => req.userId === user.sub);
         if (!userRequest) return '';
@@ -121,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleCheckboxChange(event) {
         const lessonId = event.target.dataset.lessonId;
         const isChecked = event.target.checked;
-        const user = JSON.parse(localStorage.getItem('user'));
+        const user = await window.auth0Client.getUser();
         
         try {
             const response = await fetch('/api/request-lesson', {
@@ -178,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCurriculumDisplay();
 
-    window.addEventListener('authStateChanged', () => {
+    window.addEventListener('authStateChanged', async () => {
         console.log('Auth state changed, updating curriculum display');
-        updateCurriculumDisplay();
+        await updateCurriculumDisplay();
     });
 });
