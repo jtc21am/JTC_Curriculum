@@ -42,3 +42,33 @@ function displayAdminDashboard() {
     appDiv.innerHTML = `
         <h2>Admin Dashboard</h2>
         <div id="userManagement">
+            <h3>User Management</h3>
+            <p>Manage users, roles, and permissions here.</p>
+            <!-- Add more admin functionalities here -->
+        </div>
+    `;
+}
+
+function displayUnauthorizedMessage() {
+    const appDiv = document.getElementById('app');
+    appDiv.innerHTML = `
+        <h2>Unauthorized</h2>
+        <p>You do not have access to this page. Please contact an administrator if you believe this is an error.</p>
+    `;
+}
+
+function displayLoginMessage() {
+    const appDiv = document.getElementById('app');
+    appDiv.innerHTML = `
+        <h2>Please Log In</h2>
+        <p>You need to be logged in to access the admin dashboard.</p>
+    `;
+}
+
+function displayErrorMessage(error) {
+    const appDiv = document.getElementById('app');
+    appDiv.innerHTML = `
+        <h2>Error</h2>
+        <p>There was an error loading the admin dashboard: ${error.message}</p>
+    `;
+}

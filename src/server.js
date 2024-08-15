@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { User, Lesson } = require('./models');
+const { User, Lesson } = require('./models/models');
 
 const app = express();
 
@@ -106,6 +106,22 @@ app.get('/api/user-lessons/:userId', async (req, res) => {
     } catch (error) {
         console.error('Error fetching user lessons:', error);
         res.status(500).json({ error: 'Error fetching user lessons' });
+    }
+});
+
+// Handle profile picture updates (if stored as URLs)
+app.put('/api/user/:sub/profile-pic', async (req, res) => {
+    const { profilePic } = req.body;
+    try {
+        const user = await User.findOneAndUpdate(
+            { sub: req.params.sub },
+            { profilePic },
+            { new: true }
+        );
+        res.json(user);
+    } catch (error) {
+        console.error('Error updating profile picture:', error);
+        res.status(500).json({ error: 'Error updating profile picture' });
     }
 });
 

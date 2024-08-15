@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const CurriculumItem = require('./curriculumItems');
+const CurriculumItem = require('../curriculumItems');
 
 // Get all curriculum items
 router.get('/', async (req, res) => {

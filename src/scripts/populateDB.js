@@ -1,7 +1,7 @@
 require('dotenv').config();
 const dbConnect = require('./dbConnect');
-const { Lesson } = require('./models');
-const curriculumData = require('./corrected_curriculum_final.json');
+const { Lesson } = require('../../models');
+const curriculumData = require('../../corrected_curriculum_final.json');
 
 async function populateDatabase() {
     await dbConnect();

@@ -1,7 +1,7 @@
 const express = require('express');
 const { expressjwt: jwtMiddleware } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
-const User = require('../api/User');
+const User = require('./User');
 require('dotenv').config();
 
 const router = express.Router();

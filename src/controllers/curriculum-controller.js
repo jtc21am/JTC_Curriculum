@@ -1,4 +1,4 @@
-const Curriculum = require('./CurriculumItems'); // Mongoose model for Curriculum
+const Curriculum = require('../CurriculumItems'); // Mongoose model for Curriculum
 const { broadcast } = require('./websocket'); // Import the broadcast function
 
 // Get Curriculum Data
