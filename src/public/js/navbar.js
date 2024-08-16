@@ -66,7 +66,9 @@ function setupEventListeners(auth0Client) {
 
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
-            auth0Client.logout({ returnTo: window.location.origin });
+            auth0Client.logout({
+                returnTo: 'https://curriculum-organizer.vercel.app',
+              });
         });
     }
 }
