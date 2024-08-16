@@ -70,6 +70,7 @@ function setupEventListeners(auth0Client) {
                 returnTo: 'https://curriculum-organizer.vercel.app',
               });
         });
+        //test
     }
 }
 
