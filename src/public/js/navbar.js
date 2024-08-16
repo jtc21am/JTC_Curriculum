@@ -63,14 +63,12 @@ function setupEventListeners(auth0Client) {
             auth0Client.loginWithRedirect();
         });
     }
-
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             auth0Client.logout({
-                returnTo: 'https://curriculum-organizer.vercel.app',
-              });
+                returnTo: process.env.AUTH0_LOGOUT_URL || window.location.origin, // Use dynamic logout URL
+            });
         });
-        //test
     }
 }
 
