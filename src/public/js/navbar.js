@@ -66,7 +66,7 @@ function setupEventListeners(auth0Client) {
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             auth0Client.logout({
-                returnTo: process.env.AUTH0_LOGOUT_URL || window.location.origin, // Use dynamic logout URL
+                returnTo: window.location.origin, // Use dynamic logout URL
             });
         });
     }
