@@ -1,22 +1,19 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Your Application</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<nav class="bg-white border-b border-gray-200 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <a class="text-lg font-semibold text-gray-900" href="#">Your Application</a>
+        <button class="text-gray-500 md:hidden focus:outline-none" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="curriculum.html">Curriculum</a></li>
-                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact-suggestions.html">Contact Us & Suggestions</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-            </ul>
-            <!-- Login and Logout buttons -->
-            <button id="login" class="btn btn-primary">Login</button>
-            <button id="logout" class="btn btn-danger" style="display: none;">Logout</button>
+        <div class="hidden md:flex space-x-4">
+            <a class="text-gray-600 hover:text-gray-900" href="index.html">Home</a>
+            <a class="text-gray-600 hover:text-gray-900" href="curriculum.html">Curriculum</a>
+            <a class="text-gray-600 hover:text-gray-900" href="profile.html">Profile</a>
+            <a class="text-gray-600 hover:text-gray-900" href="contact-suggestions.html">Contact Us & Suggestions</a>
+            <a class="text-gray-600 hover:text-gray-900" href="admin.html">Admin</a>
+            <button id="login" class="px-4 py-2 bg-blue-500 text-white rounded-md">Login</button>
+            <button id="logout" class="px-4 py-2 bg-red-500 text-white rounded-md hidden">Logout</button>
         </div>
     </div>
 </nav>
-
