@@ -28,16 +28,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             if (user.profilePhoto) {
                 profilePhotoPreview.src = user.profilePhoto;
-                profilePhotoPreview.style.display = 'block';
+                profilePhotoPreview.classList.remove('hidden');
             } else {
-                profilePhotoPreview.style.display = 'none';
+                profilePhotoPreview.classList.add('hidden');
             }
 
-            profileContent.style.display = 'block';
-            loginMessage.style.display = 'none';
+            profileContent.classList.remove('hidden');
+            loginMessage.classList.add('hidden');
         } else {
-            profileContent.style.display = 'none';
-            loginMessage.style.display = 'block';
+            profileContent.classList.add('hidden');
+            loginMessage.classList.remove('hidden');
         }
     }
 
@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         const photoUrl = e.target.value;
         if (photoUrl) {
             profilePhotoPreview.src = photoUrl;
-            profilePhotoPreview.style.display = 'block';
+            profilePhotoPreview.classList.remove('hidden');
         } else {
-            profilePhotoPreview.style.display = 'none';
+            profilePhotoPreview.classList.add('hidden');
         }
     });
 

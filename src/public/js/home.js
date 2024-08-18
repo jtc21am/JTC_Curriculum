@@ -39,21 +39,37 @@ document.addEventListener('DOMContentLoaded', async () => {
             const notConfirmedLessons = lessons.filter(lesson => lesson.confirmedLecturer && lesson.confirmedLecturer !== user.name);
 
             userInfoDiv.innerHTML = `
-                <h3>Welcome, ${user.name}!</h3>
-                <br>
-                <h4>Your Pending Requests:</h4>
-                <ul>${pendingLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}</ul>
-                <br>
-                <h4>Your Confirmed Lectures:</h4>
-                <ul>${confirmedLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}</ul>
-                <br>
-                <h4>Your Not-Confirmed Lectures:</h4>
-                <ul>${notConfirmedLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}</ul>
+                <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800">Welcome, ${user.name}!</h3>
+
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-gray-700">Your Pending Requests:</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                            ${pendingLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-gray-700">Your Confirmed Lectures:</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                            ${confirmedLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-gray-700">Your Not-Confirmed Lectures:</h4>
+                        <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                            ${notConfirmedLessons.map(lesson => `<li>${lesson['Lesson Name']} - ${lesson.DATE}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    ${user.isAdmin ? `<p class="mt-4 text-red-600 font-bold">You have admin privileges.</p>` : ''}
+                </div>
             `;
 
-            if (user.isAdmin) {
-                userInfoDiv.innerHTML += `<p><strong>You have admin privileges.</strong></p>`;
-            }
+                // if (user.isAdmin) {
+                //     userInfoDiv.innerHTML += `<p><strong>You have admin privileges.</strong></p>`;
+                // }
         } catch (error) {
             console.error('Error fetching user lessons:', error);
             userInfoDiv.innerHTML = 'Failed to load user information. Please try again later.';
